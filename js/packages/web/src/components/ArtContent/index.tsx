@@ -7,6 +7,7 @@ import { useCachedImage, useExtendedArt } from '../../hooks';
 import { Stream, StreamPlayerApi } from '@cloudflare/stream-react';
 import { PublicKey } from '@solana/web3.js';
 import { getLast } from '../../utils/utils';
+import ReactAudioPlayer from 'react-audio-player';
 
 const MeshArtContent = ({
   uri,
@@ -158,6 +159,16 @@ const VideoArtContent = ({
   return content;
 };
 
+const AudioArtContent = ( props: {src : string} ) => {
+  return (
+    <ReactAudioPlayer
+    src={props.src}
+    autoPlay
+    controls                                                                       
+    />    
+  );
+};
+
 const HTMLContent = ({
   uri,
   animationUrl,
@@ -267,7 +278,7 @@ export const ArtContent = ({
   }
 
   const content =
-    category === 'video' ? (
+    category === 'video' || category === 'audio'? (
       <VideoArtContent
         className={className}
         style={style}

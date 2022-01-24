@@ -62,7 +62,7 @@ export const ENDPOINTS = [
   },
   {
     name: 'devnet' as ENV,
-    endpoint: 'https://dev.api.devnet.solana.fluidchains.xyz',
+    endpoint: 'https://api.devnet.solana.com',
     ChainId: ChainId.Devnet,
   },
 ];
